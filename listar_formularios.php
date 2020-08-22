@@ -28,7 +28,7 @@ $y=0;
       <th scope="col">Titulo</th>
       <th scope="col">Data/Hora</th>
       <th scope="col">Por</th>
-      <th scope="col"> <a  href="formulario.php" class="btn btn-primary" > <i class="fa fa-plus-square"></i></a></th>
+      <th scope="col"> <a  href="novo_formulario.php" class="btn btn-primary" > <i class="fa fa-plus-square"></i></a></th>
     </tr>
   </thead>
   <tbody>
@@ -67,7 +67,7 @@ $y=0;
     
 echo '<div class="col-sm-5 col-sm-offset-9">
 <a  href="update_formulario.php?id_form='.$id[$y].'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
-echo '<a  href="deletar_formulario.php?id_form='.$id[$y].'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este ordem?\');"><i class="fa fa-trash"></i></a></div><br>';
+echo '<a  href="scripts/deletar_formulario.php?id_form='.$id[$y].'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este ordem?\');"><i class="fa fa-trash"></i></a></div><br>';
       
        echo' <hr><p>Por: '.$user.' em '.date('d/m/Y',strtotime($row['data1'])).' - '.date('H:i', strtotime($row['hora'])).' - Ip: '.$row['ip_os'].'</p>
       </div>

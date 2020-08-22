@@ -12,16 +12,16 @@ include_once 'classes/header.php';
 <form method="POST">
 	<div class="col-sm-4 col-sm-offset-4">
 	Nome:
-	<input type="text" name="nome" class="w3-input">
+	<input type="text" name="nome" class="form-control">
 	E-mail:
-	<input type="text" name="email" class="w3-input">
+	<input type="text" name="email" class="form-control">
 	Senha:
-	<input type="password" name="password" class="w3-input">
+	<input type="password" name="password" class="form-control">
 	Cargo:
-	<input type='' class="w3-input">
+	<input type='' class="form-control">
 
 	<br><br>
-<button type="submit" name="submit" value="Registrar" class="btn btn-primary" >Submit</button></div>
+<button type="submit" name="submit" value="Registrar" class="btn btn-primary" >Registrar</button></div>
 </form>
 <?php
 if ($_POST) {

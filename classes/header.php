@@ -33,7 +33,7 @@ session_start();
         if((isset($_SESSION['login']))and($_SESSION['login'] == true)){
 echo '<li><a  href="listar_computadores.php">Lista de Materiais</a></li>
     <li><a  href="novo_computador.php">Novo Material</a></li>
-    <li><a  href="formulario.php">Nova Ordem</a></li>
+    <li><a  href="novo_formulario.php">Nova Ordem</a></li>
     <li><a  href="listar_formularios.php">Ordens de serviço</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

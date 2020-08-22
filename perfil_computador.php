@@ -19,7 +19,7 @@ $row = $comp->fetch_array();
 <?php 
 
 echo '<a  href="update_computador.php?id_comps='.$id.'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
-echo '<a  href="deletar_computador.php?id_comps='.$id.'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este computador?\');"><i class="fa fa-trash"></i></a>';
+echo '<a  href="scripts/deletar_computador.php?id_comps='.$id.'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este computador?\');"><i class="fa fa-trash"></i></a>';
 ?>
 </div>
  <table class="table">
@@ -89,7 +89,7 @@ echo '<tbody><th scope="row"></th>';
 echo '<td>'.$row['mudanca'].'</td>';
 echo '<td>'.date('d/m/Y', strtotime($row['data_de'])).'</td>';
 //echo '<td>'.$row['data_de'].'</td>';
-echo '<td><a  href="deletar_historico.php?id_historic='.$row['id_historia'].'& id_comp='.$id.' " class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar esta alteração?\');"><i class="fa fa-trash"></i></a></td>';
+echo '<td><a  href="scripts/deletar_historico.php?id_historic='.$row['id_historia'].'& id_comp='.$id.' " class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar esta alteração?\');"><i class="fa fa-trash"></i></a></td>';
 }
 
 ?>
