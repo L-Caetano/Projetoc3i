@@ -6,7 +6,7 @@ include_once 'classes/computadores.class.php';
 
 <div class="col-sm-3 col-sm-offset-4">
 
-   <form action="pesquisa.php" method="POST">
+   <form action="pesquisa_material.php" method="POST">
       <input type="text" name="search" class="form-control">
        
  </div>
