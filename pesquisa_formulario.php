@@ -1,25 +1,42 @@
- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<?php 
-include_once 'classes/formulario.class.php';
+<?php
 include_once 'classes/header.php';
+include_once 'classes/connection.class.php';
+include_once 'classes/formulario.class.php';
+?>
 
-$x = new formulario();
+<div class="col-sm-3 col-sm-offset-4">
 
- ?>
- 
- <div class="col-sm-3 col-sm-offset-4">
    <form action="pesquisa_formulario.php" method="POST">
       <input type="text" name="search" class="form-control">
+       
  </div>
+ 
+
  <button type="submit" name="submit-search" class="btn btn-primary">Pesquisar</button>
    </form>
- 
- <div class="col-sm-8 col-sm-offset-2">
-  <h1>Ordens de serviço</h1>
-  <?php 
-$z = $x->todos_formularios();
+
+
+<div class="col-sm-8 col-sm-offset-2">
+<h3>Resultado da pesquisa:</h3>
+</div>
+<?php
+$y = new conect();
+if(isset($_POST['submit-search'])){
+ $x = new formulario();
+ $w = $y->real_escape_string($_POST['search']);
+ $z = $x->search_formularios($w);
 $y=0;
-  ?>
+}
+?>
+
+ 
+<?php
+if($z == false){
+echo '<div class="col-sm-8 col-sm-offset-2">
+          <h4>Não é possivel encontrar computadores com essas características</h4>';
+}else{
+?>
+ <div class="col-sm-8 col-sm-offset-2">
  <table class="table">
   <thead>
     <tr>
@@ -32,21 +49,19 @@ $y=0;
     </tr>
   </thead>
   <tbody>
-   
-    
       <?php
       while($row=$z->fetch_array()){
         $x->set_userid($row['iduser']);
         $user = $x->get_user();
-	echo '<tr>
+  echo '<tr>
   <th scope="row"></th>
       <th >#'.$row['id_formulario'].'</th>
       <td><b>'.ucfirst($row['title']).'</b></td>
       <td>'.date('d/m/Y',strtotime($row['data1'])).' - '.date('H:i', strtotime($row['hora'])).'</td>
        <td>'.$user.'</td>
       ';
-	$id[$y] = $row['id_formulario'];
-	echo ' <div class="w3-container">
+  $id[$y] = $row['id_formulario'];
+  echo ' <div class="w3-container">
  <td>
   <button onclick="document.getElementById(\''.$id[$y].'\').style.display=\'block\'" class="btn btn-primary">Detalhes...</button>
 </td>
@@ -74,10 +89,12 @@ echo '<a  href="scripts/deletar_formulario.php?id_form='.$id[$y].'" class="btn b
     </div>
   </div>
 </div>';
-	$y = $y+1;
+  $y = $y+1;
 }
 ?>
 
     
   </tbody>
 </table>
+<?php
+}

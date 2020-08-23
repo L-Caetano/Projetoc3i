@@ -87,7 +87,16 @@ echo ' </ul>
 function update_formulario(){
   if($x= $this->conn->action('UPDATE `formulario` SET `data1`=[value-3],`hora`=[value-4],`texto`=[value-5],`title`=[value-6],`local_os`=[value-7],`ip_os`=[value-8],`solucao_os`=[value-9],`prioridade_os`=[value-10],`tecnico_os`=[value-11],`status_os`=[value-12] WHERE 1')){}
 }
-
+function search_formularios($search){
+      if($x = $this->conn->action('SELECT * FROM `formulario` WHERE `data1` LIKE "%'.$search.'%" OR `hora` LIKE "%'.$search.'%" OR `texto` LIKE "%'.$search.'%" OR `title`  LIKE "%'.$search.'%" OR `local_os` LIKE "%'.$search.'%" OR `ip_os` LIKE "%'.$search.'%" OR `solucao_os` LIKE "%'.$search.'%" OR `prioridade_os` LIKE "%'.$search.'%" OR `tecnico_os` LIKE "%'.$search.'%" OR `status_os` LIKE "%'.$search.'%"')){
+        if(mysqli_num_rows($x) > 0){
+               return $x;
+        }else{
+          
+          return $x = false;
+        }
+      }
+    }
   /*
   function fodase(){
   	if($x = $this->conn->action('SELECT * FROM `ref_ldap` WHERE 1')){
