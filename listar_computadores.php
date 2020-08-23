@@ -9,7 +9,7 @@ $x = new computadores();
 
 
  <div class="col-sm-3 col-sm-offset-4">
-   <form action="pesquisa_material.php" method="POST">
+   <form action="pesquisa.php" method="POST">
       <input type="text" name="search" class="form-control">
  </div>
  <button type="submit" name="submit-search" class="btn btn-primary">Pesquisar</button>
