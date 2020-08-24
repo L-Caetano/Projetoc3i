@@ -18,10 +18,12 @@ $x = new computadores();
  
  <div class="col-sm-8 col-sm-offset-2">
  <h1>Materiais</h1>
+ 
  <?php
 $z = $x->todos_computadores();
 $y=0;
  ?>
+
  <table class="table">
   <thead>
     <tr>

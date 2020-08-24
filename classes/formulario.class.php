@@ -1,7 +1,7 @@
 <?php 
 include_once 'user.class.php';
 class formulario extends user{
-protected $data1,$horario,$id_formulario,$texto,$title,$ip,$prioridade,$local,$status;
+protected $data1,$horario,$id_formulario,$texto,$title,$ip,$prioridade,$local,$status,$solucao_os,$tecnico;
 function set_id_formulario($id){
        $this->id_formulario = $id;
 }
@@ -13,7 +13,8 @@ function set_id_formulario($id){
       echo 'erro ao deletar';
     }
 }
-function set_formulario($data1,$horario,$texto,$title,$ip,$prioridade,$local,$status){
+function set_formulario($data1,$horario,$texto,$title,$ip,$prioridade,$local,$status,$solucao_os){
+  $this->solucao_os = $this->conn->real_escape_string($solucao_os);
         $this->data1 = $this->conn->real_escape_string($data1);
         $this->horario = $this->conn->real_escape_string($horario);
         $this->texto = $this->conn->real_escape_string($texto);
@@ -85,7 +86,9 @@ echo ' </ul>
     }
   }
 function update_formulario(){
-  if($x= $this->conn->action('UPDATE `formulario` SET `data1`=[value-3],`hora`=[value-4],`texto`=[value-5],`title`=[value-6],`local_os`=[value-7],`ip_os`=[value-8],`solucao_os`=[value-9],`prioridade_os`=[value-10],`tecnico_os`=[value-11],`status_os`=[value-12] WHERE 1')){}
+  if($x= $this->conn->action('UPDATE `formulario` SET `data1`="'.$this->data1.'",`hora`="'.$this->horario.'",`texto`="'.$this->texto.'",`title`="'.$this->title.'",`local_os`="'.$this->local.'",`ip_os`="'.$this->ip.'",`solucao_os`="'.$this->solucao_os.'",`prioridade_os`="'.$this->prioridade.'",`tecnico_os`="'.$this->tecnico.'",`status_os`="'.$this->status.'" WHERE id_formulario='.$this->id_formulario)){
+    
+  }
 }
 function search_formularios($search){
       if($x = $this->conn->action('SELECT * FROM `formulario` WHERE `data1` LIKE "%'.$search.'%" OR `hora` LIKE "%'.$search.'%" OR `texto` LIKE "%'.$search.'%" OR `title`  LIKE "%'.$search.'%" OR `local_os` LIKE "%'.$search.'%" OR `ip_os` LIKE "%'.$search.'%" OR `solucao_os` LIKE "%'.$search.'%" OR `prioridade_os` LIKE "%'.$search.'%" OR `tecnico_os` LIKE "%'.$search.'%" OR `status_os` LIKE "%'.$search.'%"')){

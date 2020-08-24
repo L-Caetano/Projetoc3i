@@ -81,3 +81,4 @@ echo '<a  href="scripts/deletar_formulario.php?id_form='.$id[$y].'" class="btn b
     
   </tbody>
 </table>
+</div>
