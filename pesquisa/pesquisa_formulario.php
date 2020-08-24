@@ -1,12 +1,12 @@
 <?php
-include_once 'classes/header.php';
-include_once 'classes/connection.class.php';
-include_once 'classes/formulario.class.php';
+include_once '../classes/header.php';
+include_once '../classes/connection.class.php';
+include_once '../classes/formulario.class.php';
 ?>
 
 <div class="col-sm-3 col-sm-offset-4">
 
-   <form action="pesquisa_formulario.php" method="POST">
+   <form action="../pesquisa/pesquisa_formulario.php" method="POST">
       <input type="text" name="search" class="form-control">
        
  </div>
@@ -45,7 +45,7 @@ echo '<div class="col-sm-8 col-sm-offset-2">
       <th scope="col">Titulo</th>
       <th scope="col">Data/Hora</th>
       <th scope="col">Por</th>
-      <th scope="col"> <a  href="novo_formulario.php" class="btn btn-primary" > <i class="fa fa-plus-square"></i></a></th>
+      <th scope="col"> <a  href="../novos/novo_formulario.php" class="btn btn-primary" > <i class="fa fa-plus-square"></i></a></th>
     </tr>
   </thead>
   <tbody>
@@ -81,8 +81,8 @@ echo '<div class="col-sm-8 col-sm-offset-2">
         <p>'.$row['status_os'].'</p>';
     
 echo '<div class="col-sm-5 col-sm-offset-9">
-<a  href="update_formulario.php?id_form='.$id[$y].'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
-echo '<a  href="scripts/deletar_formulario.php?id_form='.$id[$y].'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este ordem?\');"><i class="fa fa-trash"></i></a></div><br>';
+<a  href="../update/update_formulario.php?id_form='.$id[$y].'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
+echo '<a  href="../scripts/deletar_formulario.php?id_form='.$id[$y].'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este ordem?\');"><i class="fa fa-trash"></i></a></div><br>';
       
        echo' <hr><p>Por: '.$user.' em '.date('d/m/Y',strtotime($row['data1'])).' - '.date('H:i', strtotime($row['hora'])).' - Ip: '.$row['ip_os'].'</p>
       </div>

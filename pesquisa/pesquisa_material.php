@@ -1,12 +1,12 @@
 <?php
-include_once 'classes/header.php';
-include_once 'classes/connection.class.php';
-include_once 'classes/computadores.class.php';
+include_once '../classes/header.php';
+include_once '../classes/connection.class.php';
+include_once '../classes/computadores.class.php';
 ?>
 
 <div class="col-sm-3 col-sm-offset-4">
 
-   <form action="pesquisa_material.php" method="POST">
+   <form action="../pesquisa/pesquisa_material.php" method="POST">
       <input type="text" name="search" class="form-control">
        
  </div>
@@ -61,7 +61,7 @@ echo '<div class="col-sm-8 col-sm-offset-2">
 
       ';
 	$id[$m] = $row['id_comp'];
-	echo ' <td><a  href="perfil_computador.php?id_comps='.$id[$m].'" class="btn btn-primary" >Mais detalhes...</a></td>  </tr>';
+	echo ' <td><a  href="../perfil/perfil_computador.php?id_comps='.$id[$m].'" class="btn btn-primary" >Mais detalhes...</a></td>  </tr>';
 	$m = $m+1;
 }}
 ?>

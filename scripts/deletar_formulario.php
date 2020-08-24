@@ -10,4 +10,4 @@ $x = new formulario();
 $x->set_id_formulario($id);
 $x->deletar_formulario();
  
-header("Location: ../listar_formularios.php");   
+header("Location: ../listar/listar_formularios.php");   

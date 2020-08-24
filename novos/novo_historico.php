@@ -8,7 +8,7 @@ $id = $_GET['id_comps'];
 <meta charset="UTF-8">
 <title>Registrar nova alteração</title>
 <?php
-include_once 'classes/header.php';
+include_once '../classes/header.php';
 ?>
 </head>
 
@@ -24,14 +24,14 @@ include_once 'classes/header.php';
 </form>
 <?php
 if($_POST){
-	include_once 'classes/connection.class.php';
-	include_once 'classes/historico.class.php';
+	include_once '../classes/connection.class.php';
+	include_once '../classes/historico.class.php';
 	$date = $_POST['date'];
 	$mudanca = $_POST['mudanca'];
     $x = new historico();
     $x->set_new_historico($mudanca,$date);
     $x->set_novo_id($id);
     $x->new_historico();
-     header("Location: perfil_computador.php?id_comps=".$id);
+     header("Location: ../perfil/perfil_computador.php?id_comps=".$id);
 }
 ?>

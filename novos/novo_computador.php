@@ -1,6 +1,6 @@
 <?php
 
-include_once 'classes/scripseguranca.php';
+include_once '../classes/scripseguranca.php';
 $x = new seguranca();
 $x->seg_nivel();
 $x->set_session_niveis();
@@ -9,15 +9,15 @@ $x->set_niveis_aceitos(6);
 $x->set_niveis_aceitos(1);
 $x->conferir_niveis();
 ?>
+<?php
+include_once '../classes/header.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Registrar novo computador</title>
-<?php
-include_once 'classes/header.php';
-include_once 'css/custom.css';
-?>
+
 
 </head>
 
@@ -54,14 +54,14 @@ include_once 'css/custom.css';
 </div>
 <?php
 if($_POST){
-include_once 'classes/computadores.class.php';
+include_once '../classes/computadores.class.php';
 $sessao = $_POST['sessao'];
 $modelo = $_POST['modelo'];
 $config = $_POST['config'];
 $nr_serie = $_POST['nr_serie'];
 $numero = $_POST['numero'];
 $nome = $_POST['nome'];
-include_once 'classes/connection.class.php';
+include_once '../classes/connection.class.php';
 $x = new computadores();
 $x->set_novo_computador($sessao,$modelo,$config,$nr_serie,$numero,$nome);
 $x->enviar_comput();

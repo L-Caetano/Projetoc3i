@@ -12,4 +12,4 @@ $y = new historico();
 $y->set_id_his($id);
 $y->deletar_historico();
 
-header("Location: ../perfil_computador.php?id_comps=".$id_comp);   
+header("Location: ../perfil/perfil_computador.php?id_comps=".$id_comp);   

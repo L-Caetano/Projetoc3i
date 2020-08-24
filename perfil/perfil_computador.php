@@ -1,11 +1,11 @@
 
 <?php
-include_once 'classes/header.php';
+include_once '../classes/header.php';
 
 $id = $_GET['id_comps'];
 
-include_once 'classes/connection.class.php';
-include_once 'classes/computadores.class.php';
+include_once '../classes/connection.class.php';
+include_once '../classes/computadores.class.php';
 $x = new computadores();
 $x->set_novo_id($id);
 $comp = $x->get_computador();
@@ -18,8 +18,8 @@ $row = $comp->fetch_array();
 
 <?php 
 
-echo '<a  href="update_computador.php?id_comps='.$id.'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
-echo '<a  href="scripts/deletar_computador.php?id_comps='.$id.'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este computador?\');"><i class="fa fa-trash"></i></a>';
+echo '<a  href="../update/update_computador.php?id_comps='.$id.'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
+echo '<a  href="../scripts/deletar_computador.php?id_comps='.$id.'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este computador?\');"><i class="fa fa-trash"></i></a>';
 ?>
 </div>
  <table class="table">
@@ -66,7 +66,7 @@ echo '<td>'. $row['configu'].'</td>';
 
 <?php
 
-include_once 'classes/historico.class.php';
+include_once '../classes/historico.class.php';
 $y = new historico();
 $y->set_novo_id($id);
 $his = $y->get_historico();
@@ -78,7 +78,7 @@ $his = $y->get_historico();
       <th scope="col">Alteração</th>
       <th scope="col">Data</th>
       <th scope="col"><?php
-echo '<a  href="novo_historico.php?id_comps='.$id.'" class="btn btn-primary" ><i class="fa fa-plus-square"></i></a></div>'?></th>
+echo '<a  href="../novos/novo_historico.php?id_comps='.$id.'" class="btn btn-primary" ><i class="fa fa-plus-square"></i></a></div>'?></th>
     </tr>
   </thead>
   
@@ -89,7 +89,7 @@ echo '<tbody><th scope="row"></th>';
 echo '<td>'.$row['mudanca'].'</td>';
 echo '<td>'.date('d/m/Y', strtotime($row['data_de'])).'</td>';
 //echo '<td>'.$row['data_de'].'</td>';
-echo '<td><a  href="scripts/deletar_historico.php?id_historic='.$row['id_historia'].'& id_comp='.$id.' " class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar esta alteração?\');"><i class="fa fa-trash"></i></a></td>';
+echo '<td><a  href="../scripts/deletar_historico.php?id_historic='.$row['id_historia'].'& id_comp='.$id.' " class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar esta alteração?\');"><i class="fa fa-trash"></i></a></td>';
 }
 
 ?>

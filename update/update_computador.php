@@ -1,11 +1,11 @@
 
 <?php
-include_once 'classes/header.php';
+include_once '../classes/header.php';
 
 $id = $_GET['id_comps'];
 
-include_once 'classes/connection.class.php';
-include_once 'classes/computadores.class.php';
+include_once '../classes/connection.class.php';
+include_once '../classes/computadores.class.php';
 $x = new computadores();
 $x->set_novo_id($id);
 $comp = $x->get_computador();
@@ -27,9 +27,9 @@ $row = $comp->fetch_array();
   <form method="POST">
   <tbody>
     <th scope="row"></th>
-<td><input type="text" name="nome"  value="<?php echo $row['nome'] ?>"></td>
-<td><input type="text" name="modelo"  value="<?php echo $row['modelo'] ?>"></td>
-<td><input type="text" name="sessao"  value="<?php echo $row['sessao'] ?>"></td>
+<td><input type="text" name="nome" class="form-control"  value="<?php echo $row['nome'] ?>"></td>
+<td><input type="text" name="modelo" class="form-control"  value="<?php echo $row['modelo'] ?>"></td>
+<td><input type="text" name="sessao" class="form-control"  value="<?php echo $row['sessao'] ?>"></td>
 
   </tbody>
 
@@ -46,9 +46,9 @@ $row = $comp->fetch_array();
 
 <th scope="row"></th>
 
-<td><input type="text" name="numero"  value="<?php echo $row['numero'] ?>"></td>
-<td><input type="text" name="nr_serie"  value="<?php echo $row['nr_serie'] ?>"></td>
-<td><input type="text" name="config"  value="<?php echo $row['configu'] ?>"></td>
+<td><input type="text" name="numero" class="form-control"  value="<?php echo $row['numero'] ?>"></td>
+<td><input type="text" name="nr_serie" class="form-control"  value="<?php echo $row['nr_serie'] ?>"></td>
+<td><input type="text" name="config" class="form-control"  value="<?php echo $row['configu'] ?>"></td>
 
 
 
@@ -66,12 +66,12 @@ $numero = $_POST['numero'];
 $nome = $_POST['nome'];
 $x->set_novo_computador($sessao,$modelo,$config,$nr_serie,$numero,$nome);
 $x->update_comput($id);
-header("Location: perfil_computador.php?id_comps=".$id);
+header("Location: ../perfil/perfil_computador.php?id_comps=".$id);
 }
 ?>  
 <h3>Histórico</h3>
 <?php
-include_once 'classes/historico.class.php';
+include_once '../classes/historico.class.php';
 $y = new historico();
 $y->set_novo_id($id);
 $his = $y->get_historico();

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>new user</title>
 <?php
-include_once 'classes/header.php';
+include_once '../classes/header.php';
 ?>
 </head>
 
@@ -28,7 +28,7 @@ if ($_POST) {
     $n = $_POST['nome'];
 	$e = $_POST['email'];
 	$p = $_POST['password'];
-	include_once 'classes/user.class.php';
+	include_once '../classes/user.class.php';
 $x = new user();
 $x->set_info($e,$p);
 $x->upload_new_user();

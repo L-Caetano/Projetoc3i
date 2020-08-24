@@ -2,16 +2,17 @@
 //$id = $_GET['id_comps'];
 
 ?>
+<?php
+include_once '../classes/header.php';
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	
 <meta charset="UTF-8">
 <title>Ordem de serviço</title>
-<?php
-include_once 'classes/header.php';
-include_once 'css/custom.css';
-?>
+
 </head>
 
 <body>
@@ -60,9 +61,9 @@ if($_POST){
 	$status = 2;
 	echo $horario." ".$data1;
 
-include_once 'classes/formulario.class.php';
+include_once '../classes/formulario.class.php';
 $x = new formulario();
-$x->set_formulario($data1,$horario,$editor,$title,$ip,$prioridade,$local,$status);
+$x->set_formulario($data1,$horario,$editor,$title,$ip,$prioridade,$local,$status,null);
 $x->up_formulario();
 }
 

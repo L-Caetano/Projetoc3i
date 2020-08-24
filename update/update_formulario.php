@@ -1,11 +1,11 @@
 
 <?php
-include_once 'classes/header.php';
+include_once '../classes/header.php';
 
 $id = $_GET['id_form'];
 
-include_once 'classes/connection.class.php';
-include_once 'classes/formulario.class.php';
+include_once '../classes/connection.class.php';
+include_once '../classes/formulario.class.php';
 $x = new formulario();
 $x->set_id_formulario($id);
 $form = $x->get_formulario();
@@ -84,7 +84,7 @@ $prioridade = $_POST['prioridade'];
 $status = $_POST['status'];
 $x->set_formulario($data1,$time,$texto,$titulo,$row['ip_os'],$prioridade,$local,$status,$solucao);
 $x->update_formulario();
-header("Location: listar_formularios");
+header("Location: ../listar/listar_formularios");
 }
 ?>  
   </tbody>
