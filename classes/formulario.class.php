@@ -10,7 +10,7 @@ function set_id_formulario($id){
       if($this->conn->action("DELETE FROM `formulario` WHERE id_formulario =".$this->id_formulario)){
     
     }else{
-      echo 'erro ao deletar';
+     erro();
     }
 }
 function set_formulario($data1,$horario,$texto,$title,$ip,$prioridade,$local,$status,$solucao_os){
@@ -27,9 +27,9 @@ function set_formulario($data1,$horario,$texto,$title,$ip,$prioridade,$local,$st
 }
 function up_formulario(){
  if($this->conn->action('INSERT INTO `formulario`( `iduser`, `data1`, `hora`, `texto`,`title`,`local_os`, `ip_os`, `prioridade_os`, `status_os`) VALUES ('.$this->userid.',"'.$this->data1.'","'.$this->horario.'","'.$this->texto.'","'.$this->title.'","'.$this->local.'","'.$this->ip.'","'.$this->prioridade.'",'.$this->status.')')){
-
+sucesso();
  }else{
- 	echo 'ERRO AO ENVIAR AO BANCO DE DADOS';
+ 	erro();
  }
 }
  function meus_formularios(){
@@ -87,7 +87,10 @@ echo ' </ul>
   }
 function update_formulario(){
   if($x= $this->conn->action('UPDATE `formulario` SET `data1`="'.$this->data1.'",`hora`="'.$this->horario.'",`texto`="'.$this->texto.'",`title`="'.$this->title.'",`local_os`="'.$this->local.'",`ip_os`="'.$this->ip.'",`solucao_os`="'.$this->solucao_os.'",`prioridade_os`="'.$this->prioridade.'",`tecnico_os`="'.$this->tecnico.'",`status_os`="'.$this->status.'" WHERE id_formulario='.$this->id_formulario)){
+    sucesso();
     
+  }else{
+    erro();
   }
 }
 function search_formularios($search){

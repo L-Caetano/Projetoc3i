@@ -13,6 +13,7 @@ session_start();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <?php
 include_once '../css/custom.css';
+include_once '../css/alerts.php';
 
 ?>
 <nav class="navbar navbar-default ">
@@ -39,7 +40,7 @@ echo '<li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Listar
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="../listar/listar_computadores.php">Materiais</a></li>
+          <li><a href="../listar/listar_computadores.php?page=1">Materiais</a></li>
           <li><a href="../listar/listar_formularios.php">Ordens de serviço</a></li>
         </ul>
       </li>

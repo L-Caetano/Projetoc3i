@@ -46,8 +46,6 @@ include_once '../classes/header.php';
    
 </div>
 </form>
-
-</div>
 <?php
 if($_POST){
 	$editor = $_POST['editor'];
@@ -69,3 +67,5 @@ $x->up_formulario();
 
 
 ?>
+</div>
+

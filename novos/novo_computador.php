@@ -51,7 +51,6 @@ include_once '../classes/header.php';
 </div>
 
 </form>
-</div>
 <?php
 if($_POST){
 include_once '../classes/computadores.class.php';
@@ -68,3 +67,4 @@ $x->enviar_comput();
 }
 
 ?>	
+</div>

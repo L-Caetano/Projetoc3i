@@ -1,13 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
 <?php 
 include_once '../classes/connection.class.php';
 include_once '../classes/computadores.class.php';
 include_once '../classes/header.php';
-
-$x = new computadores();
+   
 
  ?>
+  <title>Listar Material</title>
 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+   $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+         return results[1] || 0;
+}
+    $(document).ready(function(){
+    var page =  $.urlParam('page');
+     $("#div_refresh").load("reload_listar_comp.php",{
+       actualpage: page
+     });
+        $("button").click(function() {
+         
+            $("#div_refresh").load("reload_listar_comp.php", {
+              actualpage: page
+            });
 
+        });
+    });
+ 
+</script>
+
+</head>
+<body>
  <div class="col-sm-3 col-sm-offset-4">
    <form action="../pesquisa/pesquisa_material.php" method="POST">
       <input type="text" name="search" class="form-control">
@@ -17,40 +43,12 @@ $x = new computadores();
    </form>
  
  <div class="col-sm-8 col-sm-offset-2">
- <h1>Materiais</h1>
+ <h1>Materiais <button id="button" class="btn btn-primary"><i class="glyphicon glyphicon-repeat"></i></button></h1> 
  
- <?php
-$z = $x->todos_computadores();
-$y=0;
- ?>
-
- <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Seção</th>
-      <th scope="col"><a  href="../novos/novo_computador.php" class="btn btn-primary" ><i class="fa fa-plus-square"></i></a></th>
-    
-    </tr>
-  </thead>
-  <tbody>
-   
-    
-      <?php
-      while($row=$z->fetch_array()){
-	echo '<tr>
-      <th scope="row"></th>
-      <td><b>'.ucfirst($row['modelo']).'</b></td>
-      <td>'.$row['sessao'].'</td>
-
-      ';
-	$id[$y] = $row['id_comp'];
-	echo ' <td><a  href="../perfil/perfil_computador.php?id_comps='.$id[$y].'" class="btn btn-primary" >Detalhes...</a></td>  </tr>';
-	$y = $y+1;
-}
-?>
-
-    
-  </tbody>
-</table>
+ </div>
+  <div class="col-sm-8 col-sm-offset-2">
+ <div id="div_refresh">
+ </div>
+</div>
+</body>
+</html>

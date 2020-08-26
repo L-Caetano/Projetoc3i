@@ -17,28 +17,24 @@ function set_novo_computador($sessao,$config,$modelo,$nr_serie,$numero,$nome){
          $this->nr_serie = $this->conn->real_escape_string($nr_serie);
          $this->numero = $this->conn->real_escape_string($numero);
          $this->nome = $this->conn->real_escape_string($nome);
-          echo $this->sessao.$this->modelo.$this->config; 
+          
      }
 function enviar_comput(){
 	if($this->conn->action('INSERT INTO computadores(configu,modelo,sessao,nr_serie,numero,nome) VALUES ("'.$this->config.'","'.$this->modelo.'","'.$this->sessao.'","'.$this->nr_serie.'","'.$this->numero.'","'.$this->nome.'")')){
-        echo 'Enviado';
+        sucesso();
        }
        else{
-           echo 'ERRO'; 
+           erro(); 
        }
     }
- function todos_computadores(){
+ function todos_computadores($page){
     if($x = $this->conn->action('SELECT sessao,id_comp,modelo FROM `computadores` WHERE 1 ')){
       /*while($row=$x->fetch_array()){
         echo $row['name'];
       }*/
       $results_per_page = 10;
       $numero_rows = mysqli_num_rows($x);
-      if (!isset($_GET['page'])) {
-       $page = 1;
-       } else {
-       $page = $_GET['page'];
-       }
+      
   $number_of_pages = ceil($numero_rows/$results_per_page);
   $this_page_first_result = ($page-1)*$results_per_page;
 $x = $this->conn->action('SELECT sessao,id_comp,modelo FROM `computadores` WHERE 1 LIMIT '. $this_page_first_result . ',' .  $results_per_page);
@@ -74,22 +70,22 @@ echo ' </ul>
    if($x = $this->conn->action('SELECT * FROM `computadores` WHERE `id_comp` = '.$this->id_comp.' ')){
             return $x;
    }else{
-     echo 'Something went wrong'; 
+     erro(); 
    }
   }
   function update_comput($id){
   if($this->conn->action('UPDATE computadores SET configu ="'.$this->config.'", modelo ="'.$this->modelo.'",sessao ="'.$this->sessao.'",nr_serie ="'.$this->nr_serie.'",numero="'.$this->numero.'",nome="'.$this->nome.'" WHERE id_comp ='.$id)){
-        echo 'Enviado';
+        sucesso();
        }
        else{
-           echo 'ERRO'; 
+          erro();
        }
     }
     function deletar(){
       if($this->conn->action("DELETE FROM `computadores` WHERE `computadores`.`id_comp` =".$this->id_comp)){
     
     }else{
-      echo 'erro ao deletar';
+      erro();
     }
 }
     function search_computadores($search){

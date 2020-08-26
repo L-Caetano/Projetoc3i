@@ -15,4 +15,4 @@ $y = new historico();
 $y->set_novo_id($id);
 $y->deletar_todo_historico();
 
-header("Location: ../listar/listar_computadores.php");   
+header("Location: ../listar/listar_computadores.php?page=1");   
