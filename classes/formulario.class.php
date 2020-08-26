@@ -47,15 +47,11 @@ sucesso();
     }
   }
 
- function todos_formularios(){
+ function todos_formularios($page){
     if($x = $this->conn->action('SELECT * FROM `formulario` WHERE 1 ORDER BY `data1` DESC, `hora` DESC')){
  $results_per_page = 10;
       $numero_rows = mysqli_num_rows($x);
-      if (!isset($_GET['page'])) {
-       $page = 1;
-       } else {
-       $page = $_GET['page'];
-       }
+      
   $number_of_pages = ceil($numero_rows/$results_per_page);
   $this_page_first_result = ($page-1)*$results_per_page;
 $x = $this->conn->action('SELECT * FROM `formulario` WHERE 1 ORDER BY `data1` DESC, `hora` DESC LIMIT '. $this_page_first_result . ',' .  $results_per_page);

@@ -38,7 +38,7 @@ echo '<li class="dropdown">
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="../listar/listar_computadores.php?page=1">Materiais</a></li>
-          <li><a href="../listar/listar_formularios.php">Ordens de serviço</a></li>
+          <li><a href="../listar/listar_formularios.php?page=1">Ordens de serviço</a></li>
         </ul>
       </li>
       <li class="dropdown">
