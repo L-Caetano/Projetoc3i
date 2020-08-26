@@ -24,7 +24,7 @@ function enviar_comput(){
         sucesso();
        }
        else{
-           erro(); 
+           erro('CEL27'); 
        }
     }
  function todos_computadores($page){
@@ -70,7 +70,7 @@ echo ' </ul>
    if($x = $this->conn->action('SELECT * FROM `computadores` WHERE `id_comp` = '.$this->id_comp.' ')){
             return $x;
    }else{
-     erro(); 
+     erro('CG73'); 
    }
   }
   function update_comput($id){
@@ -78,14 +78,14 @@ echo ' </ul>
         sucesso();
        }
        else{
-          erro();
+          erro('CU81');
        }
     }
     function deletar(){
       if($this->conn->action("DELETE FROM `computadores` WHERE `computadores`.`id_comp` =".$this->id_comp)){
     
     }else{
-      erro();
+      erro('CD88');
     }
 }
     function search_computadores($search){
@@ -96,6 +96,8 @@ echo ' </ul>
           
           return $x = false;
         }
+      }else{
+        erro('CS100');
       }
     }
 }

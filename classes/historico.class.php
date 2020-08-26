@@ -16,31 +16,28 @@ protected $id_historia,$mudanca,$data_de;
     	if($x = $this->conn->action('SELECT * FROM `historico` WHERE `id_comp` = '.$this->id_comp.' ORDER BY `historico`.`data_de` DESC')){
             return $x;
    }else{
-     echo 'Something went wrong'; 
+     erro('HG19');
    }
     }
       function deletar_todo_historico(){
       if($this->conn->action("DELETE FROM `historico` WHERE `id_comp` =".$this->id_comp)){
     
     }else{
-      echo 'erro ao deletar';
+      erro();
     }
 }
 function deletar_historico(){
       if($this->conn->action("DELETE FROM `historico` WHERE `id_historia` =".$this->id_historia)){
     
     }else{
-      echo 'erro ao deletar';
+      erro('HD33');
     }
 }
 function new_historico(){
    if($this->conn->action('INSERT INTO `historico`(`id_comp`, `mudanca`, `data_de`) VALUES ('.$this->id_comp.' ,"'.$this->mudanca.'" , "'.$this->data_de.'")') ) {
 
    }else{
-    echo 'erro 1'; 
-    var_dump($this->id_comp);
-    var_dump($this->mudanca);
-    var_dump($this->data_de);
+    erro('HN40');
    }
 }
 }

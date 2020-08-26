@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>login</title>
 <?php
-include_once 'classes/header.php';
+include_once '../classes/header.php';
 ?>
 </head>
 
@@ -21,12 +21,12 @@ include_once 'classes/header.php';
 if ($_POST) {
 	$l = $_POST['login'];
 	$p = $_POST['password'];
-	include_once 'classes/user.class.php';
+	include_once '../classes/user.class.php';
 $x = new user();
 $x->set_info($l,$p);
 $z = $x->login();
 if($z == TRUE){
-	header("Location: listar/listar_computadores.php");
+	header("Location: ../listar/listar_computadores.php");
 }
 }
 ?>

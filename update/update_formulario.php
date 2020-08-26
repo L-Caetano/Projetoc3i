@@ -1,9 +1,7 @@
 
 <?php
 include_once '../classes/header.php';
-
 $id = $_GET['id_form'];
-
 include_once '../classes/connection.class.php';
 include_once '../classes/formulario.class.php';
 $x = new formulario();
@@ -53,9 +51,9 @@ $row = $form->fetch_array();
 
 <th scope="row"></th>
 
-<td><input type="date" name="data1" class="form-control" value="<?php echo $row['data1'] ?>"></td>
-<td><input type="time" name="time" class="form-control" value="<?php echo $row['hora'] ?>"></td>
-<td><input type="text" name="solucao" class="form-control" value="<?php echo $row['solucao_os'] ?>"></td>
+<td><input type="date" name="data1" class="form-control" value="<?php echo $row['data1']; ?>"></td>
+<td><input type="time" name="time" class="form-control" value="<?php echo $row['hora']; ?>"></td>
+<td><input type="text" name="solucao" class="form-control" value="<?php echo $row['solucao_os']; ?>"></td>
 <td><select name="status" class="form-control">
           <option value="2">OS aberta</option>
           <option value="3">Avaliado</option>
@@ -72,7 +70,6 @@ $row = $form->fetch_array();
 <input type="submit" name="submit" value="Salvar Mudanças" class="btn btn-primary">
 </form>
 <?php
-
 if($_POST){
 $titulo = $_POST['titulo'];
 $texto = $_POST['texto'];
@@ -84,7 +81,6 @@ $prioridade = $_POST['prioridade'];
 $status = $_POST['status'];
 $x->set_formulario($data1,$time,$texto,$titulo,$row['ip_os'],$prioridade,$local,$status,$solucao);
 $x->update_formulario();
-header("Location: ../listar/listar_formularios");
 }
 ?>  
   </tbody>

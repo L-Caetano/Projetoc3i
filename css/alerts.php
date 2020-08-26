@@ -6,8 +6,8 @@ function sucesso(){
   Sua requisição foi um sucesso!
 </div></div>';
 }
-function erro(){
+function erro($erro){
 	echo '<div class="alert alert-danger" role="alert">
-  Falha na sua requisição!
+  Falha na sua requisição! Erro:'.$erro.'
 </div>';
 }

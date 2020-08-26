@@ -3,7 +3,6 @@
 if(!isset($_SESSION['login'])){
 session_start();
 }
-
 ?>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,8 +12,6 @@ session_start();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <?php
 include_once '../css/custom.css';
-include_once '../css/alerts.php';
-
 ?>
 <nav class="navbar navbar-default ">
   <div class="container-fluid ">
@@ -71,6 +68,6 @@ echo '<li class="dropdown">
   </div>
 </nav>';
 }
-
+include_once '../css/alerts.php';
 ?>
 

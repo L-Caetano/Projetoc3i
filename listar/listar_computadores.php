@@ -21,7 +21,7 @@ include_once '../classes/header.php';
      $("#div_refresh").load("reload_listar_comp.php",{
        actualpage: page
      });
-        $("button").click(function() {
+        $("#button1").click(function() {
          
             $("#div_refresh").load("reload_listar_comp.php", {
               actualpage: page
@@ -43,7 +43,7 @@ include_once '../classes/header.php';
    </form>
  
  <div class="col-sm-8 col-sm-offset-2">
- <h1>Materiais <button id="button" class="btn btn-primary"><i class="glyphicon glyphicon-repeat"></i></button></h1> 
+ <h1>Materiais <button id="button1" class="btn btn-primary"><i class="glyphicon glyphicon-repeat"></i></button></h1> 
  
  </div>
   <div class="col-sm-8 col-sm-offset-2">

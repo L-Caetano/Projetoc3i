@@ -24,8 +24,11 @@ class user{
                   echo 'Usuário Registrado';
 
        }else{
-        echo 'Falha ao registrar';}
-     }}}
+        erro('UU27');
+      }
+     }
+   }
+ }
 //Função usada apos enviar formulario
      function login(){
       /*----------------------AVISO----------------------- 
@@ -35,7 +38,6 @@ class user{
      	if($result = $this->conn->action('SELECT * FROM `usuario` WHERE `email`= "'.$this->email.'" and `senha`="'.$this->password.'"')){
 
      		if(mysqli_num_rows($result) > 0){
-     			echo 'Logado';
      			 $_SESSION['login']=true;
            
 
@@ -55,14 +57,14 @@ class user{
                 return TRUE;
             }
           }else{
-            echo 'error';
+            erro('UL1-60');
           }
     }
      		}else{
-                echo 'Erro 1';
+               erro('UL2-64');
             }
      }else{
-     	echo "Falha ao conectar-se ao servidor";
+     	erro('UL3-67');
      }
  }
   function logged(){

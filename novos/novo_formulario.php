@@ -57,7 +57,6 @@ if($_POST){
 	$prioridade = $_POST['prioridade'];
 	$local = $_POST['local'];
 	$status = 2;
-	echo $horario." ".$data1;
 
 include_once '../classes/formulario.class.php';
 $x = new formulario();
