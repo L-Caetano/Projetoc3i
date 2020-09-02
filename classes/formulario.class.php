@@ -33,10 +33,13 @@ sucesso();
  }
 }
  function meus_formularios(){
-    if($x = $this->conn->action('SELECT * FROM `formulario` WHERE `iduser`='.$this->userid)){
-
+    if($x = $this->conn->action('SELECT * FROM `formulario` WHERE `iduser`='.$this->userid.' ORDER BY `data1` DESC, `hora` DESC')){
+         if(mysqli_num_rows($x) > 0){
 
             return $x;
+    }else{
+      return FALSE;
+    }
     }
   }
   function get_formulario(){

@@ -51,7 +51,7 @@ echo '<div class="col-sm-8 col-sm-offset-2">
   <tbody>
       <?php
       while($row=$z->fetch_array()){
-        $x->set_userid($row['iduser']);
+        $x->set_user_id($row['iduser']);
         $user = $x->get_user();
   echo '<tr>
   <th scope="row"></th>

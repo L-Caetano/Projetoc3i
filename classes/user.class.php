@@ -6,7 +6,7 @@ class user{
 	function __construct() {
         $this->conn = new conect();
        }
-       function set_userid($id){
+       function set_user_id($id){
         $this->userid = $id; 
        }
      function set_info($email,$password){
@@ -73,10 +73,9 @@ class user{
     }
   }
   function get_user(){
-if($x = $this->conn->action('SELECT nome FROM `usuario` WHERE `iduser`= '.$this->userid)){
-    $row = $x->fetch_array();
-    $x = $row['nome'];
-    return $x;
+if($x = $this->conn->action('SELECT * FROM `usuario` WHERE `iduser`= '.$this->userid)){
+    $x=$x->fetch_array();
+    return $x['nome'];
   }
 }
 }

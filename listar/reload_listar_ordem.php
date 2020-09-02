@@ -24,14 +24,14 @@ $y=0;
     
       <?php
       while($row=$z->fetch_array()){
-        $x->set_userid($row['iduser']);
+        $x->set_user_id($row['iduser']);
         $user = $x->get_user();
 	echo '<tr>
   <th scope="row"></th>
       <th >#'.$row['id_formulario'].'</th>
       <td><b>'.ucfirst($row['title']).'</b></td>
       <td>'.date('d/m/Y',strtotime($row['data1'])).' - '.date('H:i', strtotime($row['hora'])).'</td>
-       <td>'.$user.'</td>
+       <td><a href="../perfil/perfil_user.php?iduser='.$row['iduser'].'" >'.$user.'</a></td>
       ';
 	$id[$y] = $row['id_formulario'];
 	echo ' <div class="w3-container">
@@ -57,7 +57,8 @@ echo '<div class="col-sm-5 col-sm-offset-9">
 <a  href="../update/update_formulario.php?id_form='.$id[$y].'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
 echo '<a  href="../scripts/deletar_formulario.php?id_form='.$id[$y].'" class="btn btn-danger" onclick="return confirm(\'Tem certeza que deseja deletar este ordem?\');"><i class="fa fa-trash"></i></a></div><br>';
       
-       echo' <hr><p>Por: '.$user.' em '.date('d/m/Y',strtotime($row['data1'])).' - '.date('H:i', strtotime($row['hora'])).' - Ip: '.$row['ip_os'].'</p>
+       echo' <a href="../perfil/perfil_user.php?iduser='.$row['iduser'].'" >
+       <hr><p>Por: '.$user.'</a> em '.date('d/m/Y',strtotime($row['data1'])).' - '.date('H:i', strtotime($row['hora'])).' - Ip: '.$row['ip_os'].'</p>
       </div>
     </div>
   </div>
