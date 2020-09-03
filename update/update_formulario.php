@@ -15,6 +15,10 @@ $x = new formulario();
 $x->set_id_formulario($id);
 $form = $x->get_formulario();
 $row = $form->fetch_array();
+$admin = $z->conferir_niveis(1);
+if($row['iduser'] != $_SESSION['iduser'] and $admin == FALSE){
+  die('Acesso Negado');
+}
 ?>
 
 <div class="col-sm-8 col-sm-offset-2">

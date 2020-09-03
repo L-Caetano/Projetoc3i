@@ -6,6 +6,10 @@ $z->set_session_niveis();
 $z->set_niveis_aceitos(1);
 $z->set_niveis_aceitos(2);
 $z->testar();
+$admin = $z->conferir_niveis(1);
+if($_GET['iduser'] != $_SESSION['iduser'] and $admin == FALSE){
+  die('Acesso Negado');
+}
 ?>
 <!DOCTYPE html>
 <html>
