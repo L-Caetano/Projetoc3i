@@ -1,5 +1,11 @@
-
 <?php
+include_once '../scripseguranca.php';
+$z = new seguranca();
+$z->seg_nivel();
+$z->set_session_niveis();
+$z->set_niveis_aceitos(1);
+$z->testar();
+
 include_once '../classes/header.php';
 
 $id = $_GET['id_comps'];

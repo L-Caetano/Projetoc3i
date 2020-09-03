@@ -2,6 +2,8 @@
 <?php
 if(!isset($_SESSION['login'])){
 session_start();
+}else{
+  include_once '../scripseguranca.php';
 }
 ?>
 
@@ -28,12 +30,16 @@ include_once '../css/custom.css';
         
         <li><img src="../css/favicon.ICO"></li>
         <?php
-        echo '
-
-        <li><a href="../novos/novo_usuario.php">Registrar Novo Usuario</a></li>
-        ';
+      
         if((isset($_SESSION['login']))and($_SESSION['login'] == true)){
-echo '<li class="dropdown">
+
+include_once '../scripseguranca.php';
+$x = new seguranca();
+$x->set_session_niveis();
+$admin = $x->conferir_niveis(1);
+if($admin == TRUE){
+echo '<li><a href="../novos/novo_usuario.php">Registrar Novo Usuario</a></li>
+<li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Listar
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -51,18 +57,29 @@ echo '<li class="dropdown">
       </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="delogarteste.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+        <li><a href="../user/delogarteste.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>';}elseif($admin == FALSE){
+  echo '<li><a href="../novos/novo_formulario.php">Ordem de serviço</a></li>
+  <li><a href="../perfil/perfil_user.php?iduser='.$_SESSION['iduser'].'">Minhas Oderns</a></li>
+   </ul>
+  <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="../user/delogarteste.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
       </ul>
     </div>
   </div>
 </nav>';
+}
 }else{
         echo 	
     
       '
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="../user/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>

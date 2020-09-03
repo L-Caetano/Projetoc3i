@@ -1,13 +1,10 @@
 <?php
-
-include_once '../classes/scripseguranca.php';
-$x = new seguranca();
-$x->seg_nivel();
-$x->set_session_niveis();
-$x->set_niveis_aceitos(3);
-$x->set_niveis_aceitos(6);
-$x->set_niveis_aceitos(1);
-$x->conferir_niveis();
+include_once '../scripseguranca.php';
+$z = new seguranca();
+$z->seg_nivel();
+$z->set_session_niveis();
+$z->set_niveis_aceitos(1);
+$z->testar();
 ?>
 <?php
 include_once '../classes/header.php';

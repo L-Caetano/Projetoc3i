@@ -1,7 +1,12 @@
 <?php
-include_once '../classes/scripseguranca.php';
-$w = new seguranca();
-$w->seg_nivel();
+include_once '../scripseguranca.php';
+$z = new seguranca();
+$z->seg_nivel();
+$z->set_session_niveis();
+$z->set_niveis_aceitos(1);
+$z->set_niveis_aceitos(2);
+$z->testar();
+
 $id = $_GET['id_form'];
 include_once '../classes/connection.class.php';
 include_once '../classes/formulario.class.php';

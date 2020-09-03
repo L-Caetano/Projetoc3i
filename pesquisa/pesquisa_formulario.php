@@ -1,4 +1,11 @@
 <?php
+include_once '../scripseguranca.php';
+$z = new seguranca();
+$z->seg_nivel();
+$z->set_session_niveis();
+$z->set_niveis_aceitos(1);
+$z->testar();
+
 include_once '../classes/header.php';
 include_once '../classes/connection.class.php';
 include_once '../classes/formulario.class.php';

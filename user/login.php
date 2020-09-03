@@ -26,7 +26,7 @@ $x = new user();
 $x->set_info($l,$p);
 $z = $x->login();
 if($z == TRUE){
-	header("Location: ../listar/listar_computadores.php");
+	header("Location: ../novos/novo_formulario.php");
 }
 }
 ?>

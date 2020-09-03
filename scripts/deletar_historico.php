@@ -1,7 +1,11 @@
 <?php
-include_once '../classes/scripseguranca.php';
-$w = new seguranca();
-$w->seg_nivel();
+include_once '../scripseguranca.php';
+$z = new seguranca();
+$z->seg_nivel();
+$z->set_session_niveis();
+$z->set_niveis_aceitos(1);
+$z->testar();
+
 $id_comp=$_GET['id_comp'];
 $id = $_GET['id_historic'];
 include_once '../classes/computadores.class.php';
