@@ -41,10 +41,16 @@ class user{
      			 $_SESSION['login']=true;
            
 
-           if($x = $this->conn->action('SELECT iduser FROM `usuario` WHERE `email`= "'.$this->email.'"')){
+           if($x = $this->conn->action('SELECT iduser,senha FROM `usuario` WHERE `email`= "'.$this->email.'"')){
            $row=$x->fetch_array();
+           $novaSenha=FALSE;
            $_SESSION['iduser']=$row['iduser'];
-               //Busca todos os cargos que o usuario X tem \/
+           if($row['senha']== '202cb962ac59075b964b07152d234b70'){
+                  $novaSenha=TRUE;
+                  echo'<script> alert("grito"); </script>';
+                       } 
+
+              //Busca todos os cargos que o usuario X tem \/
           if($y = $this->conn->action('SELECT id_nivel FROM nivelseg_usuario WHERE iduser ='.$row['iduser'])){
                 $num = 0;
                 //$row Recebe os dados de usuario, via while loop é possivel escrever todos os cargos diferentes que o usuário possue
@@ -54,7 +60,12 @@ class user{
                 $_SESSION['nivel'.$num] = $row['id_nivel'];
                 //$_SESSION['num'] sendo igual ao número de repetições do loop while serve para manter registrados no sistema quantos cargos o indivíduo possue sem ser necessário abrir o banco de dados em futuras funções para checar
                 $_SESSION['num'] = $num;
+                if($novaSenha==TRUE){
+               header("Location: ../user/novasenha.php?");
+              }
+              else if($novaSenha==FALSE){
                 return TRUE;
+              }
             }
           }else{
             erro('UL1-60');
