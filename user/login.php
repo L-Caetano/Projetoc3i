@@ -11,7 +11,7 @@ include_once '../classes/header.php';
 <body>
 <form method="POST">
 <div class="col-sm-4 col-sm-offset-4">
-	E-mail:
+	Nome:
 	<input type="text" name="login" required="" class="form-control"><br><br>
 	Senha:
 	<input type="password" required="" name="password" class="form-control"><br><br>
@@ -27,7 +27,7 @@ $x->set_info($l,$p);
 $z = $x->login();
 
 if($z == TRUE){
-	header("Location: ../novos/novo_formulario.php");
+	header("Location: ../listar/listar_formularios.php?page=1");
 }
 
 }

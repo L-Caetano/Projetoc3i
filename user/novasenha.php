@@ -41,7 +41,7 @@
 			$con->action("UPDATE usuario SET senha='".md5($senha1)."' WHERE iduser=".$id." ");
 			echo "<script>
 		 				alert('Alterado com sucesso!');
-		 				window.location.href = '../listar/listar_computadores.php';
+		 				window.location.href = '../novos/novo_formulario.php';
 		 			 </script>";
 		}
 		else if($senha1 != $senha2){

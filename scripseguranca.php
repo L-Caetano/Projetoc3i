@@ -36,13 +36,15 @@ if(!isset($_SESSION['login'])or($_SESSION['login'] == false)){
        $this->niveis_aceitos[$this->num] = $nivel;
  }
 function conferir_niveis($nivel){
- 
+
   if(is_array($this->todos_session_niveis)){
   $w = count($this->todos_session_niveis);
+
 }else{
+
   $w = 1;
 }
-    for($z = 1;$z >= $w ;$z++){
+    for($z = 1;;$z++){
       
           if($this->todos_session_niveis[$z] == $nivel){
           

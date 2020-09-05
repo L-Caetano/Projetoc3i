@@ -33,7 +33,7 @@ include_once '../css/custom.css';
         <li><img src="../css/favicon.ICO"></li>
         <?php
       
-        if((isset($_SESSION['login']))and($_SESSION['login'] == true)){
+        if((isset($_SESSION['login']))and($_SESSION['login'] == TRUE)){
 
 include_once '../scripseguranca.php';
 $x = new seguranca();
@@ -76,6 +76,7 @@ echo '<li><a href="../novos/novo_usuario.php">Registrar Novo Usuario</a></li>
     </div>
   </div>
 </nav>';
+
 }
 }else{
         echo 	
