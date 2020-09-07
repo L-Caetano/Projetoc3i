@@ -58,7 +58,8 @@ $y=0;
         <h4>Prioridade</h4>
         <p>'.$row['prioridade_os'].'</p>
         <h4>Status</h4>
-        <p>'.$row['status_os'].'</p>';
+        <p>';
+        echo $x->get_ordem_status($row['status_os']).'</p>';
     
 echo '<div class="col-sm-5 col-sm-offset-9">
 <a  href="../update/update_formulario.php?id_form='.$id[$y].'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';

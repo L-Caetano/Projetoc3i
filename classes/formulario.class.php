@@ -101,14 +101,10 @@ function search_formularios($search){
         }
       }
     }
-  /*
-  function fodase(){
-  	if($x = $this->conn->action('SELECT * FROM `ref_ldap` WHERE 1')){
-  		echo 'kk<br>';
-  	while($row = $x->fetch_array()){
-  	$this->conn->action("INSERT INTO `usuario` (nome) VALUES ('".$row['login_ldap']."')");
-  	echo $row['login_ldap'].'';
-  }
-  }
-  }*/
+ function get_ordem_status($status){
+  if($x = $this->conn->action('SELECT * FROM `ref_status` WHERE `status_id`='.$status)){
+    $row=$x->fetch_array();
+    return $row['status_nome'];
+      }
+ }
 }

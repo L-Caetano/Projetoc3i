@@ -41,6 +41,7 @@ $x->set_session_niveis();
 $admin = $x->conferir_niveis(1);
 if($admin == TRUE){
 echo '<li><a href="../novos/novo_usuario.php">Registrar Novo Usuario</a></li>
+<li><a href="../perfil/perfil_user.php?iduser='.$_SESSION['iduser'].'">Minhas Oderns</a></li>
 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Listar
         <span class="caret"></span></a>

@@ -98,7 +98,8 @@ echo '<div class="col-sm-8 col-sm-offset-2">
         <h4>Prioridade</h4>
         <p>'.$row['prioridade_os'].'</p>
         <h4>Status</h4>
-        <p>'.$row['status_os'].'</p>';
+        <p>';
+        echo $z->get_ordem_status($row['status_os']).'</p>';
     
 echo '<div class="col-sm-5 col-sm-offset-9">
 <a  href="../update/update_formulario.php?id_form='.$row['id_formulario'].'" class="btn btn-primary " ><i class="fa fa-edit"></i></a>';
